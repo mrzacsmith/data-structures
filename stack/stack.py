@@ -1,7 +1,10 @@
+from doubly_linked_list import ListNode, DoublyLinkedList
+import sys
+sys.path.append('../doubly_linked_list/doubly_linked_list.py')
+
 """
 A stack is a data structure whose primary purpose is to store and
 return elements in Last In First Out order. 
-
 1. Implement the Stack class using an array as the underlying storage structure.
    Make sure the Stack tests pass.
 2. Re-implement the Stack class, this time using the linked list implementation
@@ -10,7 +13,6 @@ return elements in Last In First Out order.
 3. What is the difference between using an array vs. a linked list when 
    implementing a Stack?
 """
-import sys
 
 
 class Stack:
@@ -22,7 +24,7 @@ class Stack:
         return self.size
 
     def push(self, value):
-        pass
+        return self.storage.add_to_head(value)
 
     def pop(self):
-        pass
+        return self.storage.remove_from_head()
