@@ -19,6 +19,7 @@ doubly_linked_path = os.path.normpath(os.path.join(__file__, '../../doubly_linke
 sys.path.append(doubly_linked_path)
 from doubly_linked_list import DoublyLinkedList, ListNode
 
+# will not work with the TK import style, use CRTL+K S to save
 class Queue:
     def __init__(self):
         self.size = 0
