@@ -26,11 +26,13 @@ class Stack:
         return self.storage.length 
 
     def push(self, value):
-        self.storage.add_to_tail(value)
-        self.size += 1
+        return self.storage.add_to_head(value)
+        # self.size += 1
 
     def pop(self):
-        if self.size <= 0:
-            return None
-        self.size -= 1
-        self.storage.remove_from_tail()
+        # if self.size <= 0:
+        #     return None
+        # self.size -= 1
+        # self.storage.remove_from_tail()
+        if len(self.storage) > 0:
+            return self.storage.remove_from_head()
