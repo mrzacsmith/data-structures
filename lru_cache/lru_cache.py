@@ -2,7 +2,7 @@ import os
 import sys
 doubly_linked_path = os.path.normpath(os.path.join(__file__, '../../doubly_linked_list'))
 sys.path.append(doubly_linked_path)
-from doubly_linked_list import DoublyLinkedList
+from dll import DoublyLinkedList
 
 class LRUCache:
     """
@@ -17,6 +17,7 @@ class LRUCache:
     self.max_nodes = limit
     self.current_nodes = 0
     self.dll = DoublyLinkedList()
+    self.dict = {}
 
     """
     Retrieves the value associated with the given key. Also
@@ -38,5 +39,35 @@ class LRUCache:
     want to overwrite the old value associated with the key with
     the newly-specified value.
     """
-    def set(self, key, value):
-        pass
+    def set(self, key, val):
+         
+        #handle case wehre full
+        if self.current_nodes = self.limit:
+            node = self.dll.tail
+            old_key = node.value[0]
+            self.dll.remove_from_tail()
+
+
+            del self.dll[old_key]
+            # self.dll.pop(old_key)
+            self.current_nodes -= 1
+
+        # if key isn't store and not full, add to cache
+        if key not in self.dict:
+            self.dict[key] = val
+            self.dll.add_to_head([key, val])
+
+            self.current_nodes += 1
+
+        # if store, overwrite old value
+        else:
+            self.dict[key] = val
+            
+            node = node.head 
+            while node is not None:
+                if key == node.value[0]
+                    node.value[1] = val
+
+                    break 
+
+                node = node.next
