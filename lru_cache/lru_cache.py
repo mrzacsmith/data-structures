@@ -32,7 +32,7 @@ class LRUCache:
 
         node = self.dll.head
         while node is not None:
-            if key == node.value[0]:
+            if key == node.value:
                 self.dll.move_to_front(node)
                 break
             
@@ -65,7 +65,7 @@ class LRUCache:
                 node = node.next
         else:
          
-            #handle case wehre full
+            #handle case where full
             if self.current_nodes == self.max_nodes:
                 node = self.dll.tail
                 old_key = node.value[0]
