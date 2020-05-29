@@ -45,7 +45,7 @@ class BSTNode:
             else:
                 return False
         else:
-            return Fa;se
+            return False
 
     # Return the maximum value found in the tree
     def get_max(self):
