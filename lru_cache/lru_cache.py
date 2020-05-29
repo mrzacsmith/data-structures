@@ -49,36 +49,56 @@ class LRUCache:
     want to overwrite the old value associated with the key with
     the newly-specified value.
     """
+    # def set(self, key, val):
+    #     # if store, overwrite old value
+    #     if key in self.dict:
+    #         self.dict[key] = val
+            
+    #         node = self.dll.head 
+    #         while node is not None:
+    #             if key == node.value[0]:
+    #                 node.value[1] = val
+    #                 self.dll.move_to_front(node)
+
+    #                 break 
+
+    #             node = node.next
+    #     else:
+         
+    #         #handle case where full
+    #         if self.current_nodes == self.max_nodes:
+    #             node = self.dll.tail
+    #             old_key = node.value[0]
+    #             self.dll.remove_from_tail()
+
+
+    #             del self.dict[old_key]
+    #             # self.dll.pop(old_key)
+    #             self.current_nodes -= 1
+
+    #         # if key isn't store and not full, add to cache
+    #         if key not in self.dict:
+    #             self.dict[key] = val
+    #             self.dll.add_to_head([key, val])
+
+    #             self.current_nodes += 1
     def set(self, key, val):
-        # if store, overwrite old value
         if key in self.dict:
             self.dict[key] = val
-            
-            node = self.dll.head 
+            node = self.dll.head
             while node is not None:
                 if key == node.value[0]:
                     node.value[1] = val
                     self.dll.move_to_front(node)
-
-                    break 
-
+                    break
                 node = node.next
         else:
-         
-            #handle case where full
             if self.current_nodes == self.max_nodes:
                 node = self.dll.tail
                 old_key = node.value[0]
                 self.dll.remove_from_tail()
-
-
                 del self.dict[old_key]
-                # self.dll.pop(old_key)
                 self.current_nodes -= 1
-
-            # if key isn't store and not full, add to cache
-            if key not in self.dict:
-                self.dict[key] = val
-                self.dll.add_to_head([key, val])
-
-                self.current_nodes += 1
+            self.dict[key] = val
+            self.dll.add_to_head([key, val])
+            self.current_nodes += 1
