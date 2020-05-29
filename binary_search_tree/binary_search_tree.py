@@ -33,13 +33,16 @@ class BSTNode:
     # Return True if the tree contains the value
     # False if it does not
     def contains(self, target):
+        # print('contains', self.value)
+        if target == self.value:
+            return True
 
         if target < self.value:
             if self.left:
                 return self.left.contains(target)
             else:
                 return False
-        elif target > self.value:
+        elif target >= self.value:
             if self.right:
                 return self.right.contains(target)
             else:
@@ -68,31 +71,35 @@ class BSTNode:
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
     def in_order_print(self, node):
+        if node == None:
+            return
+
         if node.left:
             self.in_order_print(node.left)
+
+        print(node.value)
 
         if node.right:
             self.in_order_print(node.right)
 
-        print(node.value)
-
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
-    def bft_print(self, node):
-        
 
-    # Print the value of every node, starting with the given node,
-    # in an iterative depth first traversal
-    # def dft_print(self, node):
-    #     pass
+    def bft_print(self, node):
+        pass
+        # Print the value of every node, starting with the given node,
+        # in an iterative depth first traversal
+
+    def dft_print(self, node):
+        pass
 
     # Stretch Goals -------------------------
     # Note: Research may be required
 
     # Print Pre-order recursive DFT
-    # def pre_order_dft(self, node):
-    #     pass
+    def pre_order_dft(self, node):
+        pass
 
     # Print Post-order recursive DFT
-    # def post_order_dft(self, node):
-    #     pass
+    def post_order_dft(self, node):
+        pass
